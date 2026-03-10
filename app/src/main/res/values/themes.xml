@@ -1,0 +1,55 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.IslamiApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorOnPrimary">@color/lightBlack</item>
+        <item name="colorSecondary">@color/lightBlack</item>
+        <item name="colorOnSecondary">@color/gold</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.IslamiApp" parent="Base.Theme.IslamiApp" />
+
+    <style name="bodyLarge">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bodyMedium">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bodySmall">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleMedium">
+        <item name="android:textColor">@color/gold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleLarge">
+        <item name="android:textColor">@color/gold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleSmall">
+        <item name="android:textColor">@color/lightBlack</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="headerSmall">
+        <item name="android:textColor">@color/lightBlack</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
