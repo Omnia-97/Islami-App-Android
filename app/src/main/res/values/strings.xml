@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">IslamiApp</string>
+    <string name="quran">quran</string>
+    <string name="hadeth">hadeth</string>
+    <string name="sebha">sebha</string>
+    <string name="radio">radio</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
