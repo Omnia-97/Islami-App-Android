@@ -1,5 +1,6 @@
 package com.example.islamiapp.ui.screens.main.fragments.quran
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.islamiapp.Constant
 import com.example.islamiapp.R
+import com.example.islamiapp.ui.screens.sura_details.SuraDetailsActivity
 
 class QuranFragment : Fragment() {
     lateinit var suraRecyclerView: RecyclerView
@@ -34,7 +36,11 @@ class QuranFragment : Fragment() {
 
     private fun initSuraRecyclerView(view: View) {
         suraRecyclerView = view.findViewById(R.id.suraRecyclerView)
-        suraAdapter = SurasAdapter(Constant.suras, onClick = {})
+        suraAdapter = SurasAdapter(suras = Constant.suras, onClick = {
+            val intent = Intent(activity, SuraDetailsActivity::class.java)
+            intent.putExtra(SuraDetailsActivity.SURA_KEY, it)
+            startActivity(intent)
+        })
         suraRecyclerView.adapter = suraAdapter
     }
 }
