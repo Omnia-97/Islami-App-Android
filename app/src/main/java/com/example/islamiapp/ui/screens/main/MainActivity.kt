@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.islamiapp.R
 import com.example.islamiapp.ui.screens.main.fragments.hadeth.HadethFragment
 import com.example.islamiapp.ui.screens.main.fragments.quran.QuranFragment
+import com.example.islamiapp.ui.screens.main.fragments.sebha.SebhaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -29,8 +30,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.sebhaTab -> {
-                    Toast.makeText(this, "Task", Toast.LENGTH_SHORT).show()
-                    return@setOnItemSelectedListener false
+                    showFragment(SebhaFragment())
                 }
 
                 R.id.radioTab -> {
