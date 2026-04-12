@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@drawable/quran_tab_bg"
+    android:padding="16dp"
     tools:context=".ui.screens.main.fragments.quran.QuranFragment">
 
     <ImageView
@@ -23,9 +23,9 @@
         style="@style/bodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
         android:text="@string/suras_list"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/islamiLogo" />
 
     <androidx.recyclerview.widget.RecyclerView

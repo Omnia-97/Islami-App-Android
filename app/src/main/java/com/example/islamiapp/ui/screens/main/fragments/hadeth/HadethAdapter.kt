@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.islamiapp.R
 import com.example.islamiapp.model.HadethDm
 
-class HadethAdapter(val hadeth: MutableList<HadethDm>,val  onClick : (HadethDm) -> Unit) :
+class HadethAdapter(val hadeth: MutableList<HadethDm>, val onClick: (HadethDm) -> Unit) :
     RecyclerView.Adapter<HadethAdapter.HadethViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
