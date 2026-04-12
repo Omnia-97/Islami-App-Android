@@ -13,7 +13,7 @@ class SuraDetailsActivity : AppCompatActivity() {
     lateinit var suraNameAr: TextView
     lateinit var suraNameEn: TextView
     lateinit var backArrow: ImageView
-    lateinit var suraContentTextView : TextView
+    lateinit var suraContentTextView: TextView
 
 
     companion object {
@@ -53,9 +53,9 @@ class SuraDetailsActivity : AppCompatActivity() {
         val fileName = "${sura.index}.txt"
         val inputStream = assets.open("Suras/$fileName")
         var suraContent = ""
-        var i =1;
-        inputStream.reader().forEachLine { line->
-            if (line.isNotEmpty()){
+        var i = 1;
+        inputStream.reader().forEachLine { line ->
+            if (line.isNotEmpty()) {
                 suraContent += "$line {$i} "
                 i++
             }
