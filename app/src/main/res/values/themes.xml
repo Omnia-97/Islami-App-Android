@@ -35,6 +35,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
     <style name="titleLarge">
         <item name="android:textColor">@color/gold</item>
         <item name="android:textSize">24sp</item>

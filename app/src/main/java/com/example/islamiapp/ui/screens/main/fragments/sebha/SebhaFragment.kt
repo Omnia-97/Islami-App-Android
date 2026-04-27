@@ -1,60 +1,97 @@
 package com.example.islamiapp.ui.screens.main.fragments.sebha
 
+
+import android.animation.ObjectAnimator
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.islamiapp.R
+import android.view.animation.LinearInterpolator
+import androidx.fragment.app.Fragment
+import com.example.islamiapp.databinding.FragmentSebhaBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SebhaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SebhaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var binding: FragmentSebhaBinding
+
+    private val tasbeehList = listOf("سبحان الله", "الحمد لله", "الله أكبر")
+    private var currentTasbeehIndex = 0
+    private var count = 0
+    private var isTransitioning = false
+
+    private var rotationAnimator: ObjectAnimator? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentSebhaBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        updateUI()
+        setupBeadsClick()
+    }
+
+    private fun setupBeadsClick() {
+        binding.sebhaContainer.setOnClickListener {
+            onBeadClicked()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sebha, container, false)
+    private fun onBeadClicked() {
+        if (isTransitioning) return
+
+        if (count < MAX_COUNT) {
+            count++
+            updateUI()
+            animateBeads()
+        }
+
+        if (count == MAX_COUNT) {
+            isTransitioning = true
+            binding.sebhaContainer.postDelayed({
+                currentTasbeehIndex = (currentTasbeehIndex + 1) % tasbeehList.size
+                count = 0
+                isTransitioning = false
+                updateUI()
+            }, TRANSITION_DELAY)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SebhaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SebhaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun updateUI() {
+        binding.tasbeehTextView.text = tasbeehList[currentTasbeehIndex]
+        binding.counterTextView.text = count.toString()
+    }
+
+    private fun animateBeads() {
+        rotationAnimator?.cancel()
+
+        val currentRotation = binding.sebhaImageView.rotation
+
+        rotationAnimator = ObjectAnimator.ofFloat(
+            binding.sebhaImageView,
+            View.ROTATION,
+            currentRotation,
+            currentRotation + ROTATION_STEP
+        ).apply {
+            duration = 250
+            interpolator = LinearInterpolator()
+            start()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        rotationAnimator?.cancel()
+    }
+
+    private companion object {
+        const val MAX_COUNT = 30
+        const val TRANSITION_DELAY = 600L
+        const val ROTATION_STEP = 12f
     }
 }
