@@ -9,6 +9,17 @@
     tools:context=".ui.screens.sura_details.SuraDetailsActivity">
 
     <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitEnd"
+        android:src="@drawable/mosque_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
         android:id="@+id/icBackArrow"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -81,6 +92,7 @@
         android:id="@+id/leftCorner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/app_name"
