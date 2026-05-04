@@ -37,6 +37,16 @@ This Android Native application is built using Kotlin and XML, providing essenti
 
 ---
 
+## ScreenShots 📸 
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/quran_tab.jpg" height="400">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/quran_details.jpg" height="400">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/sebha_tab.jpg" height="400">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/hadeth_tab.jpg" height="400">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/radio_tab.jpg" height="400">
+    <img src="https://github.com/Omnia-97/Islami-App-Android/blob/master/app/src/main/res/drawable/radio_play.jpg" height="400">
+</div>
+
 ## 🚀 Getting Started:
 
 1. Clone the repository:
